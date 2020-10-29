@@ -1,0 +1,30 @@
+<p *ngIf="!data">Loading Data</p>
+<ng-container *ngIf="data">
+  <table class="table">
+    <thead>
+      <tr>
+        <th scope="col">#</th>
+        <th scope="col">Landkreis</th>
+        <th scope="col">Fälle der letzten 7 Tage/100.000 EW</th>
+        <th scope="col">Datenstand</th>
+      </tr>
+    </thead>
+    <tbody>
+      <ng-container *ngFor="let record of data.features">
+        <tr
+          [ngClass]="{
+            'yellow':
+              record.attributes.cases7_per_100k >= 35 &&
+              record.attributes.cases7_per_100k < 50,
+            'red': record.attributes.cases7_per_100k >= 50
+          }"
+        >
+          <th scope="row">{{ record.attributes.OBJECTID }}</th>
+          <td>{{ record.attributes.GEN }}</td>
+          <td>{{ record.attributes.cases7_per_100k }}</td>
+          <td>{{ record.attributes.last_update }}</td>
+        </tr>
+      </ng-container>
+    </tbody>
+  </table>
+</ng-container>
