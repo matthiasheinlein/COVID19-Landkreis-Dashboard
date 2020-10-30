@@ -1,0 +1,40 @@
+<mat-spinner *ngIf="!data"></mat-spinner>
+<ng-container *ngIf="data">
+
+  <mat-card class="filter-card">
+    <mat-card-content>
+      <form>
+        <mat-form-field class="filter-form">
+          <mat-label>Suche</mat-label>
+          <input [(ngModel)]="dataSource.filter" name="filter" matInput placeholder="z.B. nach Landkreis">
+        </mat-form-field>
+      </form>
+    </mat-card-content>
+  </mat-card>
+
+  <mat-card class="table-card">
+    <mat-card-content>
+  <table mat-table matSort [dataSource]="dataSource">
+
+    <ng-container matColumnDef="OBJECTID">
+      <th mat-header-cell *matHeaderCellDef mat-sort-header> # </th>
+      <td mat-cell *matCellDef="let element"> {{element.OBJECTID}} </td>
+    </ng-container>
+
+    <ng-container matColumnDef="GEN">
+      <th mat-header-cell *matHeaderCellDef mat-sort-header> Landkreis </th>
+      <td mat-cell *matCellDef="let element"> {{element.GEN}} </td>
+    </ng-container>
+
+    <ng-container matColumnDef="cases7_per_100k">
+      <th mat-header-cell *matHeaderCellDef mat-sort-header> Inzidenz </th>
+      <td mat-cell *matCellDef="let element"> {{element.cases7_per_100k | number}} </td>
+    </ng-container>
+
+    <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+    <tr mat-row *matRowDef="let row; columns: displayedColumns;" [ngClass]="{'yellow': row.cases7_per_100k >= 35 && row.cases7_per_100k < 50, 'red': row.cases7_per_100k >= 50}"></tr>
+  </table>
+  <mat-paginator [pageSizeOptions]="[25, 50, 100]" showFirstLastButtons></mat-paginator>
+</mat-card-content>
+</mat-card>
+</ng-container>

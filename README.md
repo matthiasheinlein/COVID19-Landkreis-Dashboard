@@ -1,27 +1,24 @@
 # COVID19LandkreisDashboard
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 10.1.7.
+I wrote this dashboard to have a fast overview on the current Seven Day Incidence Value for my district.
+Demo: [https://corona.matthiasheinlein.de](https://corona.matthiasheinlein.de)
 
-## Development server
+## Datasource
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The app will automatically reload if you change any of the source files.
+The Data is provided by the Robert Koch Institut via arcgis.com:
 
-## Code scaffolding
+- [RKI Corona Landkreise](https://npgeo-corona-npgeo-de.hub.arcgis.com/datasets/917fc37a709542548cc3be077a786c17)
+- [RKI COVID19](https://npgeo-corona-npgeo-de.hub.arcgis.com/datasets/dd4580c810204019a7b8eb3e0b329dd6_0)
 
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
+## Technology
+
+This is an Angular Project with Angular Material components.
+
+## Development requirement
+
+- Node.js
 
 ## Build
 
+Install the Angular CLI `npm install -g @angular/cli`.
 Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory. Use the `--prod` flag for a production build.
-
-## Running unit tests
-
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
-
-## Running end-to-end tests
-
-Run `ng e2e` to execute the end-to-end tests via [Protractor](http://www.protractortest.org/).
-
-## Further help
-
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI README](https://github.com/angular/angular-cli/blob/master/README.md).

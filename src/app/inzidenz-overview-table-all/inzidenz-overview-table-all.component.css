@@ -1,0 +1,25 @@
+.red{
+    background-color:lightcoral;
+}
+
+.yellow{
+    background-color:lightyellow;
+}
+
+.filter-card, .table-card{
+    margin:20px;
+    overflow:auto;
+    text-align:center;
+}
+
+.filter-form{
+    width: 100%;
+}
+
+table {
+    width: 100%;
+}
+
+th, tr{
+    text-align:left;
+}
