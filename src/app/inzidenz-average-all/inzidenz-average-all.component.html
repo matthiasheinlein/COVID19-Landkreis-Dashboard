@@ -1,0 +1,12 @@
+<mat-card class="default-card">
+    <mat-spinner *ngIf="!average"></mat-spinner>
+    
+    <mat-card-header *ngIf="average">
+        <mat-card-title>Durschnittlicher Inzidenzwert</mat-card-title>
+        <mat-card-subtitle>Datenstand: {{date}}</mat-card-subtitle>
+    </mat-card-header>
+    <mat-card-content *ngIf="average">
+        <p class="bignumber" [ngClass]="{'yellow': average >= 35 && average < 50, 'red': average >= 50}">
+            {{average | number : '1.2-2'}}</p>
+    </mat-card-content>
+</mat-card>

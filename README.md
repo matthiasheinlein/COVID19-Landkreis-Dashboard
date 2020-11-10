@@ -1,6 +1,7 @@
 # COVID19LandkreisDashboard
 
 I wrote this dashboard to have a fast overview on the current Seven Day Incidence Value for my district.
+Also I wanted to have a mobile-friendly interface with just as much information as I want.
 Demo: [https://corona.matthiasheinlein.de](https://corona.matthiasheinlein.de)
 
 ## Datasource

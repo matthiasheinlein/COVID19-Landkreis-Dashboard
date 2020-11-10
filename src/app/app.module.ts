@@ -1,9 +1,8 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
-
+import { RouterModule, Routes } from '@angular/router';
 import { HttpClientModule } from '@angular/common/http';
 import { FormsModule } from '@angular/forms';
-
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 
@@ -44,13 +43,22 @@ import { InzidenzOverviewTableAllComponent } from './inzidenz-overview-table-all
 import { LayoutModule } from '@angular/cdk/layout';
 import { MainComponent } from './main/main.component';
 import { DashboardComponent } from './dashboard/dashboard.component';
+import { FooterComponent } from './footer/footer.component';
+import { InzidenzAverageAllComponent } from './inzidenz-average-all/inzidenz-average-all.component';
+
+const appRoutes: Routes = [
+  { path: '', component: DashboardComponent },
+  { path: 'table', component: InzidenzOverviewTableAllComponent },
+];
 
 @NgModule({
   declarations: [
     AppComponent,
     InzidenzOverviewTableAllComponent,
     MainComponent,
-    DashboardComponent
+    DashboardComponent,
+    FooterComponent,
+    InzidenzAverageAllComponent
   ],
   imports: [
     BrowserModule,
@@ -90,6 +98,9 @@ import { DashboardComponent } from './dashboard/dashboard.component';
     MatSortModule,
     MatPaginatorModule,
     LayoutModule,
+    RouterModule.forRoot(
+      appRoutes
+    ),
   ],
   providers: [],
   bootstrap: [AppComponent]

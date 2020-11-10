@@ -12,9 +12,10 @@ import {MatTableDataSource} from '@angular/material/table';
 
 export class InzidenzOverviewTableAllComponent implements OnInit  {
 
-  data : any[] = new Array();
-  dataSource : any = new MatTableDataSource();
+  data: any[] = new Array();
+  dataSource: any = new MatTableDataSource();
   displayedColumns: string[] = ['OBJECTID', 'GEN', 'cases7_per_100k'];
+  date: string;
 
   constructor(private restEndpointsService: RestEndpointsService) { }
 
@@ -22,9 +23,13 @@ export class InzidenzOverviewTableAllComponent implements OnInit  {
   @ViewChild(MatPaginator) paginator: MatPaginator;
 
   ngOnInit(): void {
-    this.restEndpointsService.getRkiApiLandkreis().subscribe((data : any) =>{
-      //console.log(data);
-      data.features.forEach((element) => {
+    this.restEndpointsService.getRkiApiDistrictCasesPer100k7Days().subscribe((data: any) =>{
+      data.forEach((element: any) => {
+        if(this.date == null){
+          this.date = element.attributes.last_update;
+        } else if(this.date != element.attributes.last_update){
+          this.date = "Unterschiedliche Zeitstempel";
+        }
         this.data.push(element.attributes);
       });
       this.dataSource = new MatTableDataSource(this.data);
